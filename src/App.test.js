@@ -1,17 +1,19 @@
-import { render, screen } from "@testing-library/react";
 import App from "./App";
 import Enzyme, { shallow } from "enzyme";
 import EnzyimeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
 
 Enzyme.configure({ adapter: new EnzyimeAdapter() });
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("renders without err", () => {
+  const wrapper = shallow(<App />);
+  const appComponent = wrapper.find("[data-test='component-app']");
+  expect(appComponent.length).toBe(1);
 });
 
-test("renders non-empty component without crashing", () => {
-  const wrapper = shallow(<App />);
-  expect(wrapper.exists()).toBe(true);
-});
+test("renders increment button", () => {});
+
+test("diplays counter", () => {});
+
+test("counter display starts at 0", () => {});
+
+test("clicking button increments counter display", () => {});
